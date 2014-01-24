@@ -20,6 +20,8 @@
     "randomstring": "~1.0.2",
     "glob": "~3.2.7",
     "concat-stream": "~1.4.1",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "lodash": "~2.4.1",
+    "moment": "~2.5.0"
   }
 }
