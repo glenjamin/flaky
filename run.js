@@ -60,8 +60,10 @@ var auth = require('./lib/authentication')('/login', 'minutes', 2);
 app.post("/login", jsonOnly, auth.login);
 
 var files = require('./lib/files')();
-app.get("/list", auth.protect, function(req, res) {
-    res.json(files.sample(5).map(function(id) {
+app.get("/list/:num?", auth.protect, function(req, res) {
+    var num = parseInt(req.params.num, 10);
+    if (!num || isNaN(num)) num = 5
+    res.json(files.sample(num).map(function(id) {
         return "/files/" + id;
     }))
 })
