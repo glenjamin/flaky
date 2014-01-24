@@ -1,3 +1,8 @@
+npm install --save request async
+
+Be sure to reference the docs npm.im/request and npm.im/async
+
+
 make an HTTP GET request to /list
 
 You will get a 401 with an X-Auth-Token header and a Location: /login
@@ -5,5 +10,20 @@ You will get a 401 with an X-Auth-Token header and a Location: /login
 Make an HTTP POST request passing back the X-Auth-Token header
 to /login with json of password = "supersecret"
 
-TODO: the rest
+You'll either get a 200 if correct, or a 401 if wrong
 
+This will flag the token as approved, and you'll now be able to make requests
+without getting a 401
+
+Make an authenticated request to /list
+
+You'll get a json list of paths back ["/page/1", "/page/2"] etc
+
+Make a request to each of the pages in the response, and calculate an md5 hash.
+See: https://github.com/glenjamin/nodeschool-stream-adventure/blob/master/fifteen.js
+
+Now post back to the server on /verify with a json object of the numeric part of
+the page to the md5 hash. you'll either get a 200 or a 400.
+
+eg.
+{ "1": "d0ce1e395418223e6a8d13815714e7cd" }
