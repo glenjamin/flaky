@@ -56,7 +56,7 @@ app.get("/", function(req, res) {
     res.sendfile('./index.txt')
 })
 
-var auth = require('./lib/authentication')('/login', 'minutes', 30);
+var auth = require('./lib/authentication')('/login', 'minutes', 2);
 app.post("/login", jsonOnly, auth.login);
 
 var files = require('./lib/files')();
