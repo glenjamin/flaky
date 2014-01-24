@@ -1,0 +1,25 @@
+{
+  "name": "flaky",
+  "version": "0.0.0",
+  "description": "A web service that's more than a little bit flaky",
+  "main": "run.js",
+  "scripts": {
+    "start": "node run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/glenjamin/flaky.git"
+  },
+  "author": "Glen Mailer <glenjamin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glenjamin/flaky/issues"
+  },
+  "dependencies": {
+    "express": "~3.4.8",
+    "randomstring": "~1.0.2",
+    "glob": "~3.2.7",
+    "concat-stream": "~1.4.1",
+    "async": "~0.2.9"
+  }
+}
