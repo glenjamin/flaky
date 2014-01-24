@@ -34,7 +34,8 @@ app.response.send = function(body) {
         this.statusCode = body;
         body = arguments[1];
     }
-    if (~this.get('Content-Type').indexOf('application/json') && shouldFail()) {
+    var type = this.get('Content-Type') || "";
+    if (~type.indexOf('application/json') && shouldFail()) {
         console.log("Breaking json");
         body = 'This is not json. sux 2 be u ' + body;
     }
