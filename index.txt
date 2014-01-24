@@ -1,0 +1,9 @@
+make an HTTP GET request to /list
+
+You will get a 401 with an X-Auth-Token header and a Location: /login
+
+Make an HTTP POST request passing back the X-Auth-Token header
+to /login with json of password = "supersecret"
+
+TODO: the rest
+

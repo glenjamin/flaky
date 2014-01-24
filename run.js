@@ -53,7 +53,7 @@ function jsonOnly(req, res, next) {
 }
 
 app.get("/", function(req, res) {
-    res.send(200, "TODO: provide help")
+    res.sendfile('./index.txt')
 })
 
 var auth = require('./lib/authentication')('/login', 'minutes', 30);
