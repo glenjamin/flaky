@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>flaky - instructions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/bootstrap.min.css" rel="stylesheet" media="screen">
+<style type="text/css">
+li { line-height: 2; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Flaky</h1>
+
+<p class="lead">A practical introduction to error handling and juggling async</p>
+
+<p>You'll need a couple of dependencies to work on this,
+<a href="http://npm.im/request">request</a> and
+<a href="http://npm.im/async">async</a>.</p>
+
+<p>Be sure to read the docs for both of these for reference.</p>
+
+<pre>
+npm install --save request async
+</pre>
+
+<ol>
+    <li>make an HTTP GET request to <code>/list</code></li>
+    <li>You will get a 401 with an <code>X-Auth-Token</code> header and a
+    <code>Location: /login</code></li>
+    <li>Make an HTTP POST request passing back the <code>X-Auth-Token</code> header
+    to <code>/login</code> with JSON of <code>password = "supersecret"</code></li>
+    <li>You'll either get a 200 if correct, or a 401 if wrong</li>
+    <li>This will flag the token as approved, and you'll now be able to make requests
+    without getting a 401 by including the token header</li>
+    <li>Make an authenticated request to <code>/list</code></li>
+    <li>You'll get a json list of paths back <code>["/page/1", "/page/2"]</code> etc</li>
+    <li>Make a request to each of the pages in the response, and calculate an md5 hash.
+    <a href="https://github.com/glenjamin/nodeschool-stream-adventure/blob/a86a8068df26c84765493395232b4a22be2bcc45/fifteen.js#L13">Here's an example</a>.</li>
+    <li>Post back to the server on /verify with a json object of the numeric part of
+    the page to the md5 hash.
+    <code>{ "1": "d0ce1e395418223e6a8d13815714e7cd" }</code></li>
+    <li>You'll either get a 200 or a 400 and a true/false for each ID.</li>
+</ol>
+
+</div>
+</div>
+</body>
+</html>
