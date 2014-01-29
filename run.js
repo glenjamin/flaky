@@ -12,7 +12,7 @@ function shouldFail() {
 }
 function sometimesFail(req, res, next) {
     if (shouldFail()) {
-        console.log("Breaking connection");
+        console.log("Breaking connection for %s", req.url);
         req.socket.destroy();
         res.socket.destroy();
     } else {
@@ -37,7 +37,7 @@ app.response.send = function(body) {
     }
     var type = this.get('Content-Type') || "";
     if (~type.indexOf('application/json') && shouldFail()) {
-        console.log("Breaking json");
+        console.log("Breaking json for %s", this.req.url);
         body = 'This is not json. sux 2 be u ' + body;
     }
 
